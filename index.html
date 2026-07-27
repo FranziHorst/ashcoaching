@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Ash Ketchum – Das Verlustprotokoll</title>
+<title>Ash Ketchum. Das Verlustprotokoll</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Führungscoaching von Ash Ketchum: zwölf Wochen Training für Teams, die aus Niederlagen wieder Entwicklung machen müssen.">
 
@@ -100,7 +100,7 @@
     mix-blend-mode:difference; color:#fff;
     transition:transform .45s cubic-bezier(.19,1,.22,1);
   }
-  /* Beim Runterscrollen einfahren – sonst liegt die Leiste dauerhaft im Fließtext */
+  /* Beim Runterscrollen einfahren, sonst liegt die Leiste dauerhaft im Fließtext */
   nav.tucked{transform:translateY(-115%)}
   @media (prefers-reduced-motion:reduce){ nav{transition:none} nav.tucked{transform:none} }
   .brand{font-family:var(--mono); font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; text-decoration:none; display:flex; align-items:center; gap:.8em}
@@ -119,7 +119,7 @@
   .hero-meta span{font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted)}
   h1.d .hi{ -webkit-text-stroke:1.5px var(--ink); color:transparent}
   /* Typo links, Porträt rechts. Die Headline sitzt jetzt in einer Spalte,
-     deshalb ein kleinerer vw-Faktor als die globale h1-Regel – sonst läuft sie über. */
+     deshalb ein kleinerer vw-Faktor als die globale h1-Regel, sonst läuft sie über. */
   .hero-grid{
     display:grid;
     grid-template-columns:minmax(0,1fr) minmax(0,clamp(250px,30vw,440px));
@@ -130,7 +130,7 @@
   .hero-plate{grid-column:2; grid-row:1 / span 2; align-self:end; margin:0}
   /* Nur zweispaltig: Porträt über beide Zeilen strecken, damit es die rechte
      Seite vom Headline-Oberrand bis zur Textgrundlinie trägt. Einspaltig
-     bliebe height:100% ohne definierte Elternhöhe unbestimmt – dort natürliches 3:4. */
+     bliebe height:100% ohne definierte Elternhöhe unbestimmt: dort natürliches 3:4. */
   /* Festes Bildformat statt Strecken auf die Textblockhöhe: der Beschnitt bleibt
      dadurch bei jeder Breite konstant bei ~12 % seitlich, statt bei schmalen
      Spalten auf über 30 % zu springen und das Gesicht anzuschneiden. */
@@ -141,7 +141,7 @@
   /* Zwei gleich breite Spalten statt 1fr gegen feste Breite: das Verhältnis
      kippte sonst mit der Viewportbreite (bei 1440 war links breiter, bei 1300
      schmaler). Erste Zeilen auf gemeinsamer Schriftlinie, und der Button liegt
-     in einer eigenen Zeile – so kann seine Höhe die Ausrichtung nicht mehr
+     in einer eigenen Zeile, so kann seine Höhe die Ausrichtung nicht mehr
      verschieben, wie es bei align-items:end der Fall war. */
   .hero-foot{
     grid-column:1; grid-row:2;
@@ -152,14 +152,14 @@
   .hero-foot .body-lg{grid-column:1; grid-row:1; max-width:none}
   .hero-foot .body{grid-column:2; grid-row:1}
   .hero-foot .cta{grid-column:1; grid-row:2; margin-top:0}
-  /* Einspaltig: Lead, Fließtext, Button gestapelt – gleiche Kante für alle drei. */
+  /* Einspaltig: Lead, Fließtext, Button gestapelt, gleiche Kante für alle drei. */
   @media (max-width:1200px){
     .hero-foot{grid-template-columns:minmax(0,1fr); align-items:start}
     .hero-foot .body-lg{grid-column:1; grid-row:1; max-width:34ch}
     .hero-foot .body{grid-column:1; grid-row:2; max-width:44ch}
     .hero-foot .cta{grid-column:1; grid-row:3}
   }
-  /* Bild steigt wie eine Textzeile aus seiner Maske – gleiche Kurve wie .mask */
+  /* Bild steigt wie eine Textzeile aus seiner Maske, gleiche Kurve wie .mask */
   .shot{overflow:hidden; display:block; background:color-mix(in srgb, var(--ink) 6%, transparent)}
   .shot img{
     display:block; width:100%; height:auto;
@@ -244,7 +244,7 @@
     color:color-mix(in srgb, var(--ground) 48%, transparent);
   }
 
-  /* Schmale Viewports: Diagramm um 90° gekippt – eine Liga pro Zeile,
+  /* Schmale Viewports: Diagramm um 90° gekippt, eine Liga pro Zeile,
      Label über voller Breite, Balken wächst nach rechts, Platz an der Spitze. */
   @media (max-width:720px){
     .chart{
@@ -308,7 +308,7 @@
   }
   .prog-figure{margin:0; align-self:end; margin-bottom:calc(-1 * var(--modgap))}
   .prog-figure img{display:block; width:100%; height:auto}
-  /* Freisteller ohne transparenten Rand unten – die Bildkante ist die Standlinie. */
+  /* Freisteller ohne transparenten Rand unten, die Bildkante ist die Standlinie. */
   @media (max-width:860px){
     .prog-head{grid-template-columns:minmax(0,1fr); row-gap:clamp(18px,3vw,30px)}
     .prog-figure{justify-self:center; width:min(58vw,240px)}
@@ -358,7 +358,7 @@
   .q .who span{font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; color:var(--muted); line-height:1.5}
 
   /* ═══════════ 08 CTA ═══════════ */
-  /* Linksbündig mit Bildspalte – das Label behält dadurch seine Linie wie in
+  /* Linksbündig mit Bildspalte, das Label behält dadurch seine Linie wie in
      allen anderen Sektionen, statt sie wie in der zentrierten Fassung zu verlieren. */
   #cta .cta-grid{
     display:grid; grid-template-columns:minmax(0,1fr) minmax(0,clamp(280px,42%,560px));
@@ -446,7 +446,7 @@
              width="904" height="1200" fetchpriority="high" decoding="async"
              alt="Ash hält Pikachu eng umarmt, beide mit geschlossenen Augen.">
       </span>
-      <figcaption>Pikachu – nach dem Kampf. Seit 1997 im Team.</figcaption>
+      <figcaption>Pikachu, nach dem Kampf. Seit 1997 im Team.</figcaption>
     </figure>
 
     <div class="hero-foot">
@@ -463,7 +463,7 @@
   <div class="wrap">
     <div class="rec-head">
       <h2 class="d rv">Der Rekord,<br>ungeschönt.</h2>
-      <p class="body rv" style="--d:.1s">Jede große Ligakonferenz, zu der ich angetreten bin – mit Endplatzierung. Sechs davon habe ich verloren, bevor 2022 der Titel kam. Die Kurve nach oben ist kein Talentsprung, sondern das Ergebnis von sechs strukturierten Verlust-Reviews.</p>
+      <p class="body rv" style="--d:.1s">Jede große Ligakonferenz, zu der ich angetreten bin, mit Endplatzierung. Sechs davon habe ich verloren, bevor 2022 der Titel kam. Die Kurve nach oben ist kein Talentsprung, sondern das Ergebnis von sechs strukturierten Verlust-Reviews.</p>
     </div>
 
     <ol class="chart rv" aria-label="Ligarekord 1997 bis 2022">
@@ -505,20 +505,20 @@
     </ol>
 
     <div class="rec-key rv">
-      <b><i aria-hidden="true"></i> Verloren – sechsmal</b>
-      <b><i class="f" aria-hidden="true"></i> Gewonnen – der Titel</b>
+      <b><i aria-hidden="true"></i> Verloren: sechsmal</b>
+      <b><i class="f" aria-hidden="true"></i> Gewonnen: der Titel</b>
       <b>Zahl = Endplatzierung</b>
     </div>
-    <p class="rec-note rv">Nicht im Diagramm, weil außerhalb der großen Ligakonferenzen: Orange-Liga 1999, Kampffrontier 2006 und Alola-Liga 2019 – drei weitere Titel.</p>
+    <p class="rec-note rv">Nicht im Diagramm, weil außerhalb der großen Ligakonferenzen: Orange-Liga 1999, Kampffrontier 2006 und Alola-Liga 2019: drei weitere Titel.</p>
 
     <div class="tickwrap" aria-hidden="true">
       <div class="tick" id="tick">
         <span>25 Jahre im Feld</span>
         <span>8 Regionen</span>
         <span><em>Monarch</em> · World Coronation Series 2022</span>
-        <span><em>Alola-Liga</em> – Champion 2019</span>
-        <span>Kampffrontier – alle 7 Symbole</span>
-        <span>Orange-Liga – Sieger</span>
+        <span><em>Alola-Liga</em>, Champion 2019</span>
+        <span>Kampffrontier: alle 7 Symbole</span>
+        <span>Orange-Liga: Sieger</span>
         <span>4 Titel · 6 verlorene Konferenzen</span>
         <span>500+ Trainer:innen begleitet</span>
         <span><em>Kein einziges Motivationsposter</em></span>
@@ -560,7 +560,7 @@
       <div class="prog-copy">
         <p class="label rv">Das Programm</p>
         <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Führen wie ein<br>Trainer. Nicht<br>wie ein Boss.</h2>
-        <p class="body rv" style="--d:.12s; margin-top:1.8rem">Zwölf Wochen, drei Module, ein Rhythmus. Kein Workshop-Wochenende – ein Trainingsplan, der weiterläuft, wenn ich weg bin.</p>
+        <p class="body rv" style="--d:.12s; margin-top:1.8rem">Zwölf Wochen, drei Module, ein Rhythmus. Kein Workshop-Wochenende, ein Trainingsplan, der weiterläuft, wenn ich weg bin.</p>
       </div>
       <figure class="prog-figure rv" style="--d:.2s">
         <picture>
@@ -576,20 +576,20 @@
       <div class="mod rv">
         <span class="k num">Modul 01</span>
         <h3 class="d">Vertrauen statt Hierarchie</h3>
-        <p>Wie du ein Team aus unvereinbaren Typen zu einer Einheit machst, die freiwillig für dich antritt. Vertrauen ist keine Stimmung, sondern eine Folge von wiederholbaren Handlungen – wir bauen sie in euren Alltag ein.</p>
-        <span class="out">Woche 1 – 4</span>
+        <p>Wie du ein Team aus unvereinbaren Typen zu einer Einheit machst, die freiwillig für dich antritt. Vertrauen ist keine Stimmung, sondern eine Folge von wiederholbaren Handlungen, die wir bauen in euren Alltag ein.</p>
+        <span class="out">Woche 1–4</span>
       </div>
       <div class="mod rv" style="--d:.08s">
         <span class="k num">Modul 02</span>
         <h3 class="d">Das Verlust-Review</h3>
         <p>Mein Verfahren aus sechs verlorenen Ligen: Jede Niederlage wird nach demselben Raster seziert, bis sie eine übertragbare Lektion hergibt. Danach ist Scheitern bei euch kein Risiko mehr, sondern Datenerhebung.</p>
-        <span class="out">Woche 5 – 8</span>
+        <span class="out">Woche 5–8</span>
       </div>
       <div class="mod rv" style="--d:.16s">
         <span class="k num">Modul 03</span>
         <h3 class="d">Ein Gegner nach dem anderen</h3>
-        <p>Priorisieren wie im Kampf: ein Ziel, eine Attacke, volle Energie. Wir reduzieren eure Liste, bis die eine Sache übrig bleibt, die den Ausgang tatsächlich entscheidet – und schützen sie gegen alles andere.</p>
-        <span class="out">Woche 9 – 12</span>
+        <p>Priorisieren wie im Kampf: ein Ziel, eine Attacke, volle Energie. Wir reduzieren eure Liste, bis die eine Sache übrig bleibt, die den Ausgang tatsächlich entscheidet und schützen sie gegen alles andere.</p>
+        <span class="out">Woche 9–12</span>
       </div>
     </div>
   </div>
@@ -639,11 +639,11 @@
     <div class="dlg">
       <div class="qa rv">
         <p class="doubt">„Wir haben gerade keine Zeit."</p>
-        <p class="ans"><i>→</i><span>Ich bin seit 25 Jahren zehn Jahre alt. Zeit ist verhandelbarer, als du denkst. Wir starten mit 90 Minuten pro Woche – weniger, als ihr aktuell in Statusmeetings über genau dieses Problem verbringt.</span></p>
+        <p class="ans"><i>→</i><span>Ich bin seit 25 Jahren zehn Jahre alt. Zeit ist verhandelbarer, als du denkst. Wir starten mit 90 Minuten pro Woche, weniger als ihr aktuell in Statusmeetings über genau dieses Problem verbringt.</span></p>
       </div>
       <div class="qa rv" style="--d:.06s">
         <p class="doubt">„Coaching ist zu teuer."</p>
-        <p class="ans"><i>→</i><span>Eine verlorene Saison kostet mehr als ein Trainingslager. Rechne aus, was euch zwölf Monate Stillstand im Team kosten – Fluktuation eingerechnet. Danach reden wir über den Preis.</span></p>
+        <p class="ans"><i>→</i><span>Eine verlorene Saison kostet mehr als ein Trainingslager. Rechne aus, was euch zwölf Monate Stillstand im Team kosten, Fluktuation eingerechnet. Danach reden wir über den Preis.</span></p>
       </div>
       <div class="qa rv" style="--d:.12s">
         <p class="doubt">„Unser Team ist zu unterschiedlich."</p>
@@ -655,7 +655,7 @@
       </div>
       <div class="qa rv" style="--d:.24s">
         <p class="doubt">„Und wenn wir trotzdem verlieren?"</p>
-        <p class="ans"><i>→</i><span>Dann trainiert ihr weiter. Ich verspreche keine Unbesiegbarkeit – ich habe sechs Ligen verloren. Ich verspreche, dass danach keine Niederlage mehr umsonst ist.</span></p>
+        <p class="ans"><i>→</i><span>Dann trainiert ihr weiter. Ich verspreche keine Unbesiegbarkeit, ich habe sechs Ligen verloren. Ich verspreche, dass danach keine Niederlage mehr umsonst ist.</span></p>
       </div>
     </div>
   </div>
@@ -669,11 +669,11 @@
 
     <div class="quotes">
       <article class="q rv">
-        <blockquote>„Er hat mich nie in den Ball gezwungen. Nicht am ersten Tag, nicht heute. Deshalb kämpfe ich für ihn – nicht, weil ich muss."</blockquote>
+        <blockquote>„Er hat mich nie in den Ball gezwungen. Nicht am ersten Tag, nicht heute. Deshalb kämpfe ich für ihn, nicht weil ich muss."</blockquote>
         <div class="who"><b>Pikachu</b><span>Erster Partner<br>Seit 1997 im Team</span></div>
       </article>
       <article class="q rv" style="--d:.06s">
-        <blockquote>„Ash sieht Potenzial, bevor es sich zeigt. Aus einem verstoßenen Glumanda wurde bei ihm das stärkste Glurak der Liga – mit Geduld, nicht mit Druck."</blockquote>
+        <blockquote>„Ash sieht Potenzial, bevor es sich zeigt. Aus einem verstoßenen Glumanda wurde bei ihm das stärkste Glurak der Liga, mit Geduld nicht mit Druck."</blockquote>
         <div class="who"><b>Rocko</b><span>Ehem. Arenaleiter<br>Marmoria City</span></div>
       </article>
       <article class="q rv" style="--d:.12s">
@@ -691,7 +691,7 @@
       <div class="cta-copy">
         <p class="label rv">Dein nächster Schritt</p>
         <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Bereit für<br>deine erste Liga?</h2>
-        <p class="sub rv" style="--d:.12s">30 Minuten, kostenlos, ohne Verkaufsdruck. Wir sehen uns dein Team an und klären, wo das Training ansetzen muss – oder ob es das überhaupt braucht.</p>
+        <p class="sub rv" style="--d:.12s">30 Minuten, kostenlos, ohne Verkaufsdruck. Wir sehen uns dein Team an und klären, wo das Training ansetzen muss oder ob es das überhaupt braucht.</p>
         <a class="cta solid rv" style="--d:.18s" href="mailto:ash@ketchum.coach?subject=Erstgespr%C3%A4ch"><span>Termin anfragen</span><span>→</span></a>
         <p class="fine rv" style="--d:.24s">Antwort binnen 24 Stunden, außer ich bin gerade in einem Kampf</p>
       </div>
@@ -716,11 +716,11 @@
     <div class="faq rv" style="--d:.12s">
       <div class="fi">
         <button class="fq" aria-expanded="false"><span class="n num">01</span><span class="t">Wie läuft das Coaching konkret ab?</span><span class="s" aria-hidden="true">+</span></button>
-        <div class="fa"><div><p>Zwölf Wochen in festem Rhythmus: wöchentliches Team-Training à 90 Minuten, alle zwei Wochen ein Einzelgespräch mit dir als Führungskraft, und nach jeder Niederlage – verlorener Pitch, gescheitertes Projekt – ein strukturiertes Verlust-Review nach demselben Raster. Am Ende steht ein Team, das den Rhythmus ohne mich weiterführt.</p></div></div>
+        <div class="fa"><div><p>Zwölf Wochen in festem Rhythmus: wöchentliches Team-Training à 90 Minuten, alle zwei Wochen ein Einzelgespräch mit dir als Führungskraft, und nach jeder Niederlage (verlorener Pitch, gescheitertes Projekt) ein strukturiertes Verlust-Review nach demselben Raster. Am Ende steht ein Team, das den Rhythmus ohne mich weiterführt.</p></div></div>
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><span class="n num">02</span><span class="t">Arbeitest du auch mit Anfängern?</span><span class="s" aria-hidden="true">+</span></button>
-        <div class="fa"><div><p>Am liebsten. Ich habe selbst verschlafen und das schwierigste Starter-Pokémon von allen bekommen. Erste Führungsrolle, frisch zusammengesetztes Team, keine Erfahrung – genau da verändert Training am meisten, weil noch keine Gewohnheiten verteidigt werden müssen.</p></div></div>
+        <div class="fa"><div><p>Am liebsten. Ich habe selbst verschlafen und das schwierigste Starter-Pokémon von allen bekommen. Erste Führungsrolle, frisch zusammengesetztes Team, keine Erfahrung: genau da verändert Training am meisten, weil noch keine Gewohnheiten verteidigt werden müssen.</p></div></div>
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><span class="n num">03</span><span class="t">Online oder vor Ort?</span><span class="s" aria-hidden="true">+</span></button>
@@ -732,7 +732,7 @@
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><span class="n num">05</span><span class="t">Warum sechs Niederlagen als Referenz?</span><span class="s" aria-hidden="true">+</span></button>
-        <div class="fa"><div><p>Weil Gewinner-Biografien niemandem helfen. Was übertragbar ist, ist das Verfahren dazwischen – und das entsteht nur im Verlieren. Trainer, die dir nur ihre Titel zeigen, verschweigen dir den Teil, den du tatsächlich brauchst.</p></div></div>
+        <div class="fa"><div><p>Weil Gewinner-Biografien niemandem helfen. Was übertragbar ist, ist das Verfahren dazwischen, und das entsteht nur im Verlieren. Trainer, die dir nur ihre Titel zeigen, verschweigen dir den Teil, den du tatsächlich brauchst.</p></div></div>
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><span class="n num">06</span><span class="t">Bringst du Pikachu mit?</span><span class="s" aria-hidden="true">+</span></button>
