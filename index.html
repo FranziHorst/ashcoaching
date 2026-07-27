@@ -138,14 +138,27 @@
     .hero-plate .shot{aspect-ratio:66/100}
     .hero-plate .shot img{height:100%; object-fit:cover; object-position:50% 26%}
   }
+  /* Zwei gleich breite Spalten statt 1fr gegen feste Breite: das Verhältnis
+     kippte sonst mit der Viewportbreite (bei 1440 war links breiter, bei 1300
+     schmaler). Erste Zeilen auf gemeinsamer Schriftlinie, und der Button liegt
+     in einer eigenen Zeile — so kann seine Höhe die Ausrichtung nicht mehr
+     verschieben, wie es bei align-items:end der Fall war. */
   .hero-foot{
     grid-column:1; grid-row:2;
-    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,22rem); gap:clamp(24px,3vw,48px);
-    align-items:end;
+    display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:clamp(24px,3vw,48px); row-gap:clamp(22px,2.6vw,36px);
+    align-items:baseline;
   }
-  /* Zweite Teilung erst, wenn die Textspalte sie auch tragen kann —
-     darunter bekäme der Lead sonst nur ~20 Zeichen pro Zeile. */
-  @media (max-width:1200px){ .hero-foot{grid-template-columns:minmax(0,1fr)} }
+  .hero-foot .body-lg{grid-column:1; grid-row:1; max-width:none}
+  .hero-foot .body{grid-column:2; grid-row:1}
+  .hero-foot .cta{grid-column:1; grid-row:2; margin-top:0}
+  /* Einspaltig: Lead, Fließtext, Button gestapelt — gleiche Kante für alle drei. */
+  @media (max-width:1200px){
+    .hero-foot{grid-template-columns:minmax(0,1fr); align-items:start}
+    .hero-foot .body-lg{grid-column:1; grid-row:1; max-width:34ch}
+    .hero-foot .body{grid-column:1; grid-row:2; max-width:44ch}
+    .hero-foot .cta{grid-column:1; grid-row:3}
+  }
   /* Bild steigt wie eine Textzeile aus seiner Maske — gleiche Kurve wie .mask */
   .shot{overflow:hidden; display:block; background:color-mix(in srgb, var(--ink) 6%, transparent)}
   .shot img{
@@ -403,10 +416,8 @@
 
     <div class="hero-foot">
       <p class="body-lg rv" style="--d:.55s">Ich bin nicht der Trainer, der immer gewonnen hat. Ich bin der, der 25 Jahre lang nicht aufgehört hat. Das ist ein Unterschied — und es ist der einzige, der sich unterrichten lässt.</p>
-      <div class="rv" style="--d:.65s">
-        <p class="body">Führungscoaching für Teams, die aus Niederlagen wieder Entwicklung machen müssen. Zwölf Wochen, wöchentliches Training, dokumentierte Reviews.</p>
-        <a class="cta" href="#cta"><span>Erstgespräch buchen</span><span>→</span></a>
-      </div>
+      <p class="body rv" style="--d:.65s">Führungscoaching für Teams, die aus Niederlagen wieder Entwicklung machen müssen. Zwölf Wochen, wöchentliches Training, dokumentierte Reviews.</p>
+      <a class="cta rv" style="--d:.75s" href="#cta"><span>Erstgespräch buchen</span><span>→</span></a>
     </div>
     </div>
   </div>
