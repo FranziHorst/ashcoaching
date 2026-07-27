@@ -122,12 +122,22 @@
      deshalb ein kleinerer vw-Faktor als die globale h1-Regel — sonst läuft sie über. */
   .hero-grid{
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,clamp(250px,28vw,400px));
+    grid-template-columns:minmax(0,1fr) minmax(0,clamp(250px,30vw,440px));
     column-gap:clamp(28px,4vw,64px); row-gap:clamp(28px,4vw,52px);
     align-items:end; padding-bottom:clamp(48px,7vw,96px);
   }
-  #hero h1.d{font-size:clamp(2.9rem,8.6vw,9.5rem); grid-column:1; grid-row:1}
+  #hero h1.d{font-size:clamp(2.9rem,8.2vw,9.5rem); grid-column:1; grid-row:1}
   .hero-plate{grid-column:2; grid-row:1 / span 2; align-self:end; margin:0}
+  /* Nur zweispaltig: Porträt über beide Zeilen strecken, damit es die rechte
+     Seite vom Headline-Oberrand bis zur Textgrundlinie trägt. Einspaltig
+     bliebe height:100% ohne definierte Elternhöhe unbestimmt — dort natürliches 3:4. */
+  /* Festes Bildformat statt Strecken auf die Textblockhöhe: der Beschnitt bleibt
+     dadurch bei jeder Breite konstant bei ~12 % seitlich, statt bei schmalen
+     Spalten auf über 30 % zu springen und das Gesicht anzuschneiden. */
+  @media (min-width:1001px){
+    .hero-plate .shot{aspect-ratio:66/100}
+    .hero-plate .shot img{height:100%; object-fit:cover; object-position:50% 26%}
+  }
   .hero-foot{
     grid-column:1; grid-row:2;
     display:grid; grid-template-columns:minmax(0,1fr) minmax(0,22rem); gap:clamp(24px,3vw,48px);
