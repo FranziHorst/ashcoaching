@@ -344,9 +344,13 @@
   .dlg{margin-top:clamp(40px,6vw,80px); border-top:1px solid var(--rule-strong)}
   .qa{padding-block:clamp(26px,3.6vw,48px); border-bottom:1px solid var(--rule); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.25fr); gap:clamp(20px,4vw,64px); align-items:start}
   @media (max-width:860px){ .qa{grid-template-columns:1fr; gap:14px} }
-  .qa .doubt{font-size:clamp(1.1rem,2vw,1.6rem); line-height:1.25; font-family:var(--display); font-weight:900; font-stretch:condensed; text-transform:uppercase; letter-spacing:-.01em; color:var(--muted)}
+  .qa .doubt{font-size:clamp(1.1rem,2vw,1.6rem); line-height:1.25; font-family:var(--display); font-weight:900; font-stretch:condensed; text-transform:uppercase; letter-spacing:-.01em; color:var(--volt)}
   .qa .ans{color:var(--ink); display:flex; gap:1em}
   .qa .ans i{font-family:var(--mono); font-style:normal; flex:none; color:var(--muted); font-size:.8rem; padding-top:.25em}
+  .inv .qa .ans{color:var(--ground)}
+  .inv .qa .ans i{color:color-mix(in srgb, var(--ground) 62%, transparent)}
+  .inv .dlg{border-top-color:color-mix(in srgb, var(--ground) 25%, transparent)}
+  .inv .qa{border-bottom-color:color-mix(in srgb, var(--ground) 20%, transparent)}
 
   /* ═══════════ 07 CASES ═══════════ */
   .quotes{margin-top:clamp(40px,6vw,80px); border-top:1px solid var(--rule-strong)}
@@ -631,7 +635,7 @@
 </section>
 
 <!-- ══════ 06 EINWÄNDE ══════ -->
-<section id="einwaende">
+<section id="einwaende" class="inv">
   <div class="wrap">
     <p class="label rv">Einwände</p>
     <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Ja, aber.</h2>
