@@ -378,6 +378,9 @@
     #cta .cta-copy{text-align:right}
     #cta .sub{margin-left:auto; margin-right:0}
     #cta .fine{margin-left:auto}
+    /* Label gespiegelt: die Linie läuft nach links, der Text endet auf
+       derselben rechten Kante wie Headline, Text und Button. */
+    #cta .label{flex-direction:row-reverse}
   }
   @media (max-width:860px){
     #cta .cta-grid{grid-template-columns:minmax(0,1fr); row-gap:clamp(30px,5vw,46px)}
