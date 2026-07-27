@@ -303,7 +303,7 @@
      demselben Betrag nach unten und steht dadurch bündig auf der Linie. */
   #programm{--modgap:clamp(44px,6vw,84px)}
   .prog-head{
-    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,clamp(200px,26vw,360px));
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,clamp(220px,32vw,460px));
     column-gap:clamp(28px,4vw,64px); align-items:end;
   }
   .prog-figure{margin:0; align-self:end; margin-bottom:calc(-1 * var(--modgap))}
@@ -421,7 +421,7 @@
       <span class="shot">
         <img src="img/ash-pikachu.jpg"
              srcset="img/ash-pikachu-700.jpg 527w, img/ash-pikachu.jpg 904w"
-             sizes="(max-width:900px) min(92vw, 26rem), clamp(230px,25vw,380px)"
+             sizes="(max-width:400px) calc(100vw - 40px), (max-width:462px) 90vw, (max-width:1000px) 416px, (max-width:1466px) 30vw, 440px"
              width="904" height="1200" fetchpriority="high" decoding="async"
              alt="Ash hält Pikachu eng umarmt, beide mit geschlossenen Augen.">
       </span>
@@ -543,8 +543,8 @@
       </div>
       <figure class="prog-figure rv" style="--d:.2s">
         <picture>
-          <source type="image/webp" srcset="img/ash-thumb-500.webp 500w, img/ash-thumb-760.webp 760w"
-                  sizes="(max-width:860px) min(58vw,240px), clamp(200px,26vw,360px)">
+          <source type="image/webp" srcset="img/ash-thumb-500.webp 500w, img/ash-thumb-760.webp 760w, img/ash-thumb-927.webp 927w"
+                  sizes="(max-width:414px) 58vw, (max-width:860px) 240px, (max-width:1437px) 32vw, 460px">
           <img src="img/ash-thumb-760.png" width="927" height="970" loading="lazy" decoding="async"
                alt="Ash Ketchum zwinkert und hebt den Daumen.">
         </picture>
