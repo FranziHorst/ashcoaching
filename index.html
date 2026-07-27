@@ -1,5 +1,7 @@
+<meta charset="utf-8">
 <title>Ash Ketchum — Das Verlustprotokoll</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Führungscoaching von Ash Ketchum: zwölf Wochen Training für Teams, die aus Niederlagen wieder Entwicklung machen müssen.">
 
 <style>
   /* ═══════════ TOKENS ═══════════ */
@@ -116,11 +118,50 @@
   .hero-meta{display:flex; flex-wrap:wrap; gap:.6em 2.4em; margin-bottom:clamp(24px,4vw,48px)}
   .hero-meta span{font-family:var(--mono); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--muted)}
   h1.d .hi{ -webkit-text-stroke:1.5px var(--ink); color:transparent}
-  .hero-foot{
-    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,26rem); gap:clamp(24px,4vw,64px);
-    align-items:end; margin-top:clamp(36px,5vw,72px); padding-bottom:clamp(48px,7vw,96px);
+  /* Typo links, Porträt rechts. Die Headline sitzt jetzt in einer Spalte,
+     deshalb ein kleinerer vw-Faktor als die globale h1-Regel — sonst läuft sie über. */
+  .hero-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,clamp(250px,28vw,400px));
+    column-gap:clamp(28px,4vw,64px); row-gap:clamp(28px,4vw,52px);
+    align-items:end; padding-bottom:clamp(48px,7vw,96px);
   }
-  @media (max-width:860px){ .hero-foot{grid-template-columns:1fr} }
+  #hero h1.d{font-size:clamp(2.9rem,8.6vw,9.5rem); grid-column:1; grid-row:1}
+  .hero-plate{grid-column:2; grid-row:1 / span 2; align-self:end; margin:0}
+  .hero-foot{
+    grid-column:1; grid-row:2;
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,22rem); gap:clamp(24px,3vw,48px);
+    align-items:end;
+  }
+  /* Zweite Teilung erst, wenn die Textspalte sie auch tragen kann —
+     darunter bekäme der Lead sonst nur ~20 Zeichen pro Zeile. */
+  @media (max-width:1200px){ .hero-foot{grid-template-columns:minmax(0,1fr)} }
+  /* Bild steigt wie eine Textzeile aus seiner Maske — gleiche Kurve wie .mask */
+  .shot{overflow:hidden; display:block; background:color-mix(in srgb, var(--ink) 6%, transparent)}
+  .shot img{
+    display:block; width:100%; height:auto;
+    transform:translateY(101%); transition:transform 1.15s cubic-bezier(.19,1,.22,1) .34s;
+  }
+  .loaded .shot img{transform:none}
+  .hero-plate figcaption{
+    margin-top:12px; padding-top:10px; border-top:1px solid var(--rule);
+    font-family:var(--mono); font-size:.63rem; letter-spacing:.14em;
+    text-transform:uppercase; line-height:1.5; color:var(--muted);
+  }
+  @media (prefers-reduced-motion:reduce){ .shot img{transform:none; transition:none} }
+
+  /* Einspaltig: Headline → Bild → Text, damit das Porträt nicht hinter dem CTA landet */
+  @media (max-width:1000px){
+    .hero-grid{grid-template-columns:minmax(0,1fr)}
+    #hero h1.d{font-size:clamp(3.1rem,12.5vw,11.5rem)}
+    .hero-plate{grid-column:1; grid-row:2; max-width:26rem}
+    .hero-foot{grid-column:1; grid-row:3}
+  }
+  /* Auf Telefonen quadratisch beschnitten: behält beide Gesichter, spart ~125px
+     Höhe und holt den CTA näher an den ersten Bildschirm. */
+  @media (max-width:620px){
+    .shot img{aspect-ratio:1/1; object-fit:cover; object-position:50% 22%}
+  }
   .cta{
     display:inline-flex; align-items:center; gap:1.2em; text-decoration:none;
     font-family:var(--mono); font-size:.76rem; letter-spacing:.2em; text-transform:uppercase;
@@ -331,6 +372,7 @@
       <span class="num">Est. 1997</span>
     </div>
 
+    <div class="hero-grid">
     <h1 class="d" aria-label="Sechs Ligen verloren. Dann Weltmeister.">
       <span class="mask"><span style="--d:.10s">Sechs Ligen</span></span>
       <span class="mask"><span style="--d:.20s" class="hi">verloren.</span></span>
@@ -338,12 +380,24 @@
       <span class="mask"><span style="--d:.40s">Weltmeister.</span></span>
     </h1>
 
+    <figure class="hero-plate">
+      <span class="shot">
+        <img src="img/ash-pikachu.jpg"
+             srcset="img/ash-pikachu-700.jpg 527w, img/ash-pikachu.jpg 904w"
+             sizes="(max-width:900px) min(92vw, 26rem), clamp(230px,25vw,380px)"
+             width="904" height="1200" fetchpriority="high" decoding="async"
+             alt="Ash hält Pikachu eng umarmt, beide mit geschlossenen Augen.">
+      </span>
+      <figcaption>Pikachu — nach dem Kampf. Seit 1997 im Team.</figcaption>
+    </figure>
+
     <div class="hero-foot">
       <p class="body-lg rv" style="--d:.55s">Ich bin nicht der Trainer, der immer gewonnen hat. Ich bin der, der 25 Jahre lang nicht aufgehört hat. Das ist ein Unterschied — und es ist der einzige, der sich unterrichten lässt.</p>
       <div class="rv" style="--d:.65s">
         <p class="body">Führungscoaching für Teams, die aus Niederlagen wieder Entwicklung machen müssen. Zwölf Wochen, wöchentliches Training, dokumentierte Reviews.</p>
         <a class="cta" href="#cta"><span>Erstgespräch buchen</span><span>→</span></a>
       </div>
+    </div>
     </div>
   </div>
 </section>
