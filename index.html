@@ -122,7 +122,7 @@
      deshalb ein kleinerer vw-Faktor als die globale h1-Regel, sonst läuft sie über. */
   .hero-grid{
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(0,clamp(250px,30vw,440px));
+    grid-template-columns:minmax(min-content,1fr) minmax(0,clamp(250px,30vw,440px));
     column-gap:clamp(28px,4vw,64px); row-gap:clamp(28px,4vw,52px);
     align-items:end; padding-bottom:clamp(48px,7vw,96px);
   }
