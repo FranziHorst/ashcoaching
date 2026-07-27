@@ -299,7 +299,21 @@
   .rowtitle{transition:color .4s}
 
   /* ═══════════ 04 NEUE WELT (volt) ═══════════ */
-  .mods{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(11,11,12,.32); margin-top:clamp(44px,6vw,84px)}
+  /* Ein Wert für den Abstand zur Modul-Linie: die Figur zieht sich mit exakt
+     demselben Betrag nach unten und steht dadurch bündig auf der Linie. */
+  #programm{--modgap:clamp(44px,6vw,84px)}
+  .prog-head{
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,clamp(200px,26vw,360px));
+    column-gap:clamp(28px,4vw,64px); align-items:end;
+  }
+  .prog-figure{margin:0; align-self:end; margin-bottom:calc(-1 * var(--modgap))}
+  .prog-figure img{display:block; width:100%; height:auto}
+  /* Freisteller ohne transparenten Rand unten — die Bildkante ist die Standlinie. */
+  @media (max-width:860px){
+    .prog-head{grid-template-columns:minmax(0,1fr); row-gap:clamp(18px,3vw,30px)}
+    .prog-figure{justify-self:center; width:min(58vw,240px)}
+  }
+  .mods{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(11,11,12,.32); margin-top:var(--modgap)}
   @media (max-width:860px){ .mods{grid-template-columns:1fr} }
   .mod{padding:clamp(26px,3vw,44px) clamp(20px,2.4vw,36px); border-left:1px solid rgba(11,11,12,.22); border-bottom:1px solid rgba(11,11,12,.32); display:flex; flex-direction:column; gap:14px}
   .mod:first-child{border-left:none}
@@ -521,9 +535,21 @@
 <!-- ══════ 04 PROGRAMM (volt) ══════ -->
 <section id="programm" class="volt">
   <div class="wrap">
-    <p class="label rv">Das Programm</p>
-    <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Führen wie ein<br>Trainer. Nicht<br>wie ein Boss.</h2>
-    <p class="body rv" style="--d:.12s; margin-top:1.8rem">Zwölf Wochen, drei Module, ein Rhythmus. Kein Workshop-Wochenende — ein Trainingsplan, der weiterläuft, wenn ich weg bin.</p>
+    <div class="prog-head">
+      <div class="prog-copy">
+        <p class="label rv">Das Programm</p>
+        <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Führen wie ein<br>Trainer. Nicht<br>wie ein Boss.</h2>
+        <p class="body rv" style="--d:.12s; margin-top:1.8rem">Zwölf Wochen, drei Module, ein Rhythmus. Kein Workshop-Wochenende — ein Trainingsplan, der weiterläuft, wenn ich weg bin.</p>
+      </div>
+      <figure class="prog-figure rv" style="--d:.2s">
+        <picture>
+          <source type="image/webp" srcset="img/ash-thumb-500.webp 500w, img/ash-thumb-760.webp 760w"
+                  sizes="(max-width:860px) min(58vw,240px), clamp(200px,26vw,360px)">
+          <img src="img/ash-thumb-760.png" width="927" height="970" loading="lazy" decoding="async"
+               alt="Ash Ketchum zwinkert und hebt den Daumen.">
+        </picture>
+      </figure>
+    </div>
 
     <div class="mods">
       <div class="mod rv">
