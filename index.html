@@ -358,12 +358,30 @@
   .q .who span{font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; color:var(--muted); line-height:1.5}
 
   /* ═══════════ 08 CTA ═══════════ */
-  #cta{text-align:center}
-  #cta .label{justify-content:center}
-  #cta .label::after{display:none}
-  #cta .sub{max-width:38ch; margin:clamp(20px,3vw,32px) auto 0; color:rgba(11,11,12,.72)}
+  /* Linksbündig mit Bildspalte — das Label behält dadurch seine Linie wie in
+     allen anderen Sektionen, statt sie wie in der zentrierten Fassung zu verlieren. */
+  #cta .cta-grid{
+    display:grid; grid-template-columns:minmax(0,1fr) minmax(0,clamp(280px,42%,560px));
+    column-gap:clamp(32px,5vw,80px); align-items:center;
+  }
+  /* Kleiner als in den anderen Sektionen: die Headline teilt sich die Breite
+     jetzt mit dem Bild, und "deine erste Liga?" soll auf einer Zeile bleiben. */
+  #cta h2.d{font-size:clamp(2rem,5.6vw,4.8rem)}
+  #cta .sub{max-width:46ch; margin:clamp(20px,3vw,32px) 0 0; color:rgba(11,11,12,.72)}
   #cta .cta{margin-top:clamp(30px,4vw,48px)}
   #cta .fine{margin-top:clamp(22px,3vw,34px); font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:rgba(11,11,12,.5)}
+  #cta .cta-figure{margin:0; align-self:center}
+  #cta .cta-figure img{display:block; width:100%; height:auto}
+  /* Zweispaltig rechtsbündig: alles endet an der Linie hinter dem Label, also
+     an der Spaltenkante zum Bild. Der Flattersatz liegt dadurch links. */
+  @media (min-width:861px){
+    #cta .cta-copy{text-align:right}
+    #cta .sub{margin-left:auto; margin-right:0}
+    #cta .fine{margin-left:auto}
+  }
+  @media (max-width:860px){
+    #cta .cta-grid{grid-template-columns:minmax(0,1fr); row-gap:clamp(30px,5vw,46px)}
+  }
 
   /* ═══════════ 09 FAQ ═══════════ */
   .faq{margin-top:clamp(40px,6vw,80px); border-top:1px solid var(--rule-strong)}
@@ -666,11 +684,23 @@
 <!-- ══════ 08 CTA (volt) ══════ -->
 <section id="cta" class="volt">
   <div class="wrap">
-    <p class="label rv">Dein nächster Schritt</p>
-    <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Bereit für<br>deine erste Liga?</h2>
-    <p class="sub rv" style="--d:.12s">30 Minuten, kostenlos, ohne Verkaufsdruck. Wir sehen uns dein Team an und klären, wo das Training ansetzen muss — oder ob es das überhaupt braucht.</p>
-    <a class="cta solid rv" style="--d:.18s" href="mailto:ash@ketchum.coach?subject=Erstgespr%C3%A4ch"><span>Termin anfragen</span><span>→</span></a>
-    <p class="fine rv" style="--d:.24s">Antwort binnen 24 Stunden — außer ich bin gerade in einem Kampf</p>
+    <div class="cta-grid">
+      <div class="cta-copy">
+        <p class="label rv">Dein nächster Schritt</p>
+        <h2 class="d rv" style="--d:.06s; margin-top:1.4rem">Bereit für<br>deine erste Liga?</h2>
+        <p class="sub rv" style="--d:.12s">30 Minuten, kostenlos, ohne Verkaufsdruck. Wir sehen uns dein Team an und klären, wo das Training ansetzen muss — oder ob es das überhaupt braucht.</p>
+        <a class="cta solid rv" style="--d:.18s" href="mailto:ash@ketchum.coach?subject=Erstgespr%C3%A4ch"><span>Termin anfragen</span><span>→</span></a>
+        <p class="fine rv" style="--d:.24s">Antwort binnen 24 Stunden — außer ich bin gerade in einem Kampf</p>
+      </div>
+      <figure class="cta-figure rv" style="--d:.22s">
+        <picture>
+          <source type="image/webp" srcset="img/ash-fight-560.webp 560w, img/ash-fight-900.webp 900w, img/ash-fight-1400.webp 1400w"
+                  sizes="(max-width:860px) calc(100vw - 40px), (max-width:1436px) 42vw, 560px">
+          <img src="img/ash-fight-1400.jpg" width="2048" height="2048" loading="lazy" decoding="async"
+               alt="Ash Ketchum zeigt nach vorn, Pikachu springt neben ihm in den Kampf.">
+        </picture>
+      </figure>
+    </div>
   </div>
 </section>
 
